@@ -4,6 +4,11 @@
 import React, { useState } from 'react';
 
 /**
+ * Components
+ */
+import Login from './Login';
+
+/**
  * Styles
  */
 import './App.css';
@@ -23,7 +28,7 @@ function App() {
     setName(value);
   }
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     setDisabled(true);
 
@@ -34,23 +39,26 @@ function App() {
   }
 
   return (
-    <form className="app">
-      <input
-        disabled={disabled}
-        type="text"
-        name="calavera"
-        value={name}
-        onChange={handleName}
-      />
-      <button
-        disabled={disabled}
-        className="button"
-        type="submit"
-        onClick={handleSubmit}
-      >
-        Enviar
-      </button>
-    </form>
+    <>
+      <form className="app">
+        <input
+          disabled={disabled}
+          type="text"
+          name="calavera"
+          value={name}
+          onChange={handleName}
+        />
+        <button
+          disabled={disabled}
+          className="button"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Enviar
+        </button>
+      </form>
+      <Login />
+    </>
   );
 }
 
