@@ -13,20 +13,35 @@ const promesa = new Promise(function (rs, rj) {
   }, 2000);
 });
 
-// //Ejecucion
-// promesa
-//   .then((res) => console.log(res))
-//   .catch((err) => console.log(err));
+//Ejecucion
+promesa
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
 
 // fetch API retorna una promesa
 // la definimos y luego la manipulamos
-const baseRequest =  (resource) => fetch(`${URL_BASE}${resource}`);
+const baseRequest = (resource) => fetch(`${URL_BASE}${resource}`);
+const getPosts = (params) => baseRequest(`/posts?${params}`);
 
 // Hacemos el response & Error handler
 // fetch api nos provee de métodos [como json()] para serializar la respuesta
 // algo legible para JS que nos permite presentar los datos obtenidos en la app
 baseRequest('/users')
-  .then((res)=> {
+  .then((res) => {
+    // Primero serlializamos
+    return res.json();
+  })
+  .then((data) => {
+    // Luego la manipulamos
+    console.warn(data);
+  })
+  .catch((error) => {
+    // hacemos siempre catch por si algo falla.
+    console.error(error);
+  });
+
+getPosts('userId=2')
+  .then((res) => {
     // Primero serlializamos
     return res.json();
   })
