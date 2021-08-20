@@ -1,17 +1,17 @@
 import { URL_BASE } from './js/utils/constants.js';
 // constructor de promesas
-// const promesa = new Promise(function (rs, rj) {
+const promesa = new Promise(function (rs, rj) {
 
-//   console.log("pendiente");
+  console.log("pendiente");
 
-//   setTimeout(() => {
-//     if (true) {
-//       rs("resuelta");
-//     } else {
-//       rj("error");
-//     }
-//   }, 2000);
-// });
+  setTimeout(() => {
+    if (true) {
+      rs("resuelta");
+    } else {
+      rj("error");
+    }
+  }, 2000);
+});
 
 // //Ejecucion
 // promesa
@@ -27,7 +27,6 @@ const baseRequest =  (resource) => fetch(`${URL_BASE}${resource}`);
 // algo legible para JS que nos permite presentar los datos obtenidos en la app
 baseRequest('/users')
   .then((res)=> {
-    console.log(res);
     // Primero serlializamos
     return res.json();
   })
