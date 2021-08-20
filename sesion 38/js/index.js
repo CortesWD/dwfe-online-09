@@ -25,10 +25,10 @@ const getPosts = (params) => baseRequest(`/posts?${params}`);
 
 // Hacemos el response & Error handler
 baseRequest('/users')
-.then((res) => {
-  // Primero serlializamos
-  // fetch api nos provee de métodos [como json()] para serializar la respuesta
-  // algo legible para JS que nos permite presentar los datos obtenidos en la app
+  .then((res) => {
+    // Primero serlializamos
+    // fetch api nos provee de métodos [como json()] para serializar la respuesta
+    // algo legible para JS que nos permite presentar los datos obtenidos en la app
     return res.json();
   })
   .then((data) => {
@@ -50,3 +50,31 @@ getPosts('userId=2')
   .catch((error) => {
     console.error(error);
   });
+
+// parametrizamos para traer usuarios por ID
+const getUserPosts = (limit, id) => {
+  return new Promise(function (resolve, reject) {
+    // manejamos que no se pueda pasar como parametro
+    // un numero diferente al permitido
+    if (id <= limit && id > 0) {
+      // Resolvemos con la promesa de fetch para mantener
+      // la estructura inicial
+      resolve(getPosts(`userId=${id}`));
+    } else {
+      reject("user ID not allowed");
+    }
+  });
+}
+
+getUserPosts(3, 2333)
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((item) => {
+      console.log(`
+        ${item.id}
+        ${item.title}
+        ${item.body}
+      `);
+    });
+  })
+  .catch((err) => console.error(err));
