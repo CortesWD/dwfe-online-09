@@ -1,7 +1,17 @@
 .app {
   text-align: center;
   display: block;
-  margin: 16px auto;
+}
+
+.app {
+  background-color: #38d8c6;
+  margin: 0 auto;
+}
+
+.app.light { background-color: #38d8c6; }
+.app.dark {
+  background-color: #101010;
+  color: white;
 }
 
 input {
@@ -18,11 +28,22 @@ input {
   text-transform: uppercase;
 }
 
-.button:hover {
+
+.container {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.dark .btn {
   background-color: #6A79D9;
 }
 
-.button:disabled {
-  background-color: #474959;
-  pointer-events: none;
+.dark .card {
+  background-color: #b2b2b2;
+}
+
+.dark input {
+  border-color: #b2b2b2;
+  background-color: #555;
+  color: #b2b2b2;
 }
