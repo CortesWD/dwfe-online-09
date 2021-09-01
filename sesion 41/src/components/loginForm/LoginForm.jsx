@@ -21,26 +21,37 @@ const invalidPasswords = ["password", "test", "1234"];
 function LoginForm() {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState("");
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    /**
+     * Este useEffect se ejecutará siempre que se renderice
+     * por primera vez el componente
+     */
+    console.log('ejecución al montarse o primer render');
+
+    /**
+     * Este return en el useEffect nos permite hacer clean Up
+     * solo se ejecuta cuando el componente se destruye
+     */
+    return function () {
+      console.log('ejecución al destruir el componente');
+    }
+  }, []);
+
   /**
-   * Este useEffect se ejecuta siempre
+   * Este useEffect se ejecuta siempre que cambie
+   * userName o password
    */
   useEffect(() => {
-    if (userName.length > 3 && !invalidUsers.includes(userName.toLowerCase())) {
-      console.log('pasan todas las validaciones de username')
-    } else {
-      console.error('hay un error en username');
+    if (userName !== '' || password !== '') {
+    const validUser = userName.length > 3 && !invalidUsers.includes(userName.toLowerCase());
+    const validPass = password.length > 3 && !invalidPasswords.includes(password.toLowerCase())&& password.includes(".");
+
+    setDisabled(!(validPass && validUser));
     }
-  });
 
-  useEffect(() => {
-    if (password.length > 3 && !invalidPasswords.includes(password.toLowerCase()) && password.includes(".")) {
-      console.log('pasan todas las validaciones de password')
-    } else {
-      console.error('hay un error en password');
-    }
-  });
-
-
+  }, [userName, password]);
 
 
   return (
@@ -71,7 +82,7 @@ function LoginForm() {
             value={password}
           />
           <Button
-            disabled
+            disabled={disabled}
             type="button"
           >
             Crear cuenta

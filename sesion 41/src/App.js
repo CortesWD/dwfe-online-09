@@ -1,7 +1,7 @@
 /**
  * Dependencies
  */
-import React from 'react';
+import React, { useState } from 'react';
 
 /**
  * Components
@@ -12,17 +12,19 @@ import LoginForm from './components/loginForm/LoginForm';
  * Styles
  */
 import './App.css';
-
-
-/**
- * Others
- */
+import Button from './components/button/Button';
 
 function App() {
+  const [show, setShow] = useState(true);
   return (
     <section className='app'>
       <div className="container">
-        <LoginForm />
+        <Button
+          onClick={() => setShow(!show)}
+        >
+          Mostrar
+        </Button>
+        {show ? <LoginForm /> : null}
       </div>
     </section>
   );
