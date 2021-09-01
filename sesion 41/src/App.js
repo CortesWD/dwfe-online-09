@@ -7,12 +7,12 @@ import React, { useState } from 'react';
  * Components
  */
 import LoginForm from './components/loginForm/LoginForm';
+import Button from './components/button/Button';
 
 /**
- * Styles
+ * Styles 
  */
 import './App.css';
-import Button from './components/button/Button';
 
 function App() {
   const [show, setShow] = useState(true);
