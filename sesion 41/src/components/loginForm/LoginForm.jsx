@@ -16,20 +16,32 @@ import Button from "../button/Button";
 import "./LoginForm.css";
 
 const invalidUsers = ['username', 'test'];
+const invalidPasswords = ["password", "test", "1234"];
 
 function LoginForm() {
   const [userName, setUsername] = useState('');
-
+  const [password, setPassword] = useState("");
   /**
    * Este useEffect se ejecuta siempre
    */
   useEffect(() => {
     if (userName.length > 3 && !invalidUsers.includes(userName.toLowerCase())) {
-      console.log('pasan todas las validaciones')
+      console.log('pasan todas las validaciones de username')
     } else {
-      console.error('hay un error');
+      console.error('hay un error en username');
     }
   });
+
+  useEffect(() => {
+    if (password.length > 3 && !invalidPasswords.includes(password.toLowerCase()) && password.includes(".")) {
+      console.log('pasan todas las validaciones de password')
+    } else {
+      console.error('hay un error en password');
+    }
+  });
+
+
+
 
   return (
     <div className="flex-container centered">
@@ -52,9 +64,11 @@ function LoginForm() {
             errorMessage="usuario inválido"
           />
           <Input
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="password"
             name="password"
             type="password"
+            value={password}
           />
           <Button
             disabled
