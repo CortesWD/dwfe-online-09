@@ -1,0 +1,1 @@
+export const request = (resource) => fetch(`https://jsonplaceholder.typicode.com${resource}`);
