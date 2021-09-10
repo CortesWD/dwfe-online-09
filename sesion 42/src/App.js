@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-    request('/user')
+    request('/users')
       .then((res) => {
         if (res.status === 200) return res.json();
         if (res.status >= 400) throw new Error('error del primer then');
@@ -53,8 +53,14 @@ function App() {
               name = '',
               company = {},
               website = '',
-              id = ''
+              id = '',
+              email = '',
+              address = {}
             } = person || {};
+
+            const {
+              city
+            } = address;
 
             const {
               name: companyName = '',
@@ -66,6 +72,8 @@ function App() {
                 key={id}
                 nombre={name}
                 company={companyName}
+                email={email}
+                city={city}
                 catchPhrase={catchPhrase}
                 website={website}
               />
