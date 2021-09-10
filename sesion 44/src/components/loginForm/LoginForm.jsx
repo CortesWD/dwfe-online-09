@@ -1,7 +1,7 @@
 /**
  * Dependencies
  */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 /**
  * Components
@@ -11,31 +11,14 @@ import Input from "./../input/Input";
 import Button from "../button/Button";
 
 /**
+ * Hooks
+ */
+ import useWindowWidth from '../../hooks/useWindowWidth';
+
+/**
  * Styles
  */
 import "./LoginForm.css";
-
-
-function useWindowWidth() {
-  const [width, setWidth] = useState(null);
-
-  useEffect( () => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    handleResize();
-
-    return () => {
-      // Desmontaje, limpieza de state y eventos
-      window.removeEventListener('resize', handleResize);
-    }
-
-  }, []);
-  return width;
-}
 
 function LoginForm() {
   const [name, setName] = useState('');
