@@ -54,8 +54,14 @@ function App() {
               name = '',
               company = {},
               website = '',
-              id = ''
+              id = '',
+              email = '',
+              address = {}
             } = person || {};
+
+            const {
+              city
+            } = address;
 
             const {
               name: companyName = '',
@@ -67,6 +73,8 @@ function App() {
                 key={id}
                 nombre={name}
                 company={companyName}
+                email={email}
+                city={city}
                 catchPhrase={catchPhrase}
                 website={website}
               />

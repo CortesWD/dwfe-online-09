@@ -1,7 +1,7 @@
 /**
  * Dependencies
  */
-import React, { useState } from "react";
+import React from "react";
 
 /**
  * Components
@@ -14,6 +14,12 @@ import Button from "../button/Button";
  * Hooks
  */
  import useWindowWidth from '../../hooks/useWindowWidth';
+//  Se usa el custom hook useInput para refactorizar el uso repetido de useState
+// Igualmente, entrega una nueva manera de hacer el handleChange y el control de errores
+// para los inputs.
+// Las líneas comentadas hacen referencia a la implementación inicial. Debajo,
+// los cambios con useInput (custom hook).
+ import useInput from '../../hooks/useInput';
 
 /**
  * Styles
@@ -21,9 +27,12 @@ import Button from "../button/Button";
 import "./LoginForm.css";
 
 function LoginForm() {
-  const [name, setName] = useState('');
-  const [username, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  // const [name, setName] = useState('');
+  const name = useInput('');
+  // const [username, setUserName] = useState('');
+  const username = useInput('');
+  // const [password, setPassword] = useState('');
+  const password = useInput('');
   const width = useWindowWidth();
 
   return (
@@ -31,26 +40,32 @@ function LoginForm() {
       <Card className={width < 768 ? 'bg-green' : ''}>
         <form className="form">
           <Input
-            onChange={e => setName(e.target.value)}
+            onChange={name.handleChange}
             placeholder="name"
             autoComplete="off"
             name="name"
-            value={name}
-          />
+            value={name.value}
+            error={name.error}
+            errorMessage="El campo no puede ser vacío"
+            />
           <Input
-            onChange={e => setUserName(e.target.value)}
+            onChange={username.handleChange}
             placeholder="UserName"
             autoComplete="off"
             name="username"
-            value={username}
-          />
+            value={username.value}
+            error={username.error}
+            errorMessage="Usuario incorrecto"
+            />
           <Input
-            onChange={e => setPassword(e.target.value)}
+            onChange={password.handleChange}
             placeholder="password"
             autoComplete="off"
             name="password"
-            value={password}
+            value={password.value}
             type="password"
+            error={password.error}
+            errorMessage="Contraseña incorrecto"
           />
           <Button
             disabled
@@ -58,6 +73,7 @@ function LoginForm() {
           >
             Crear Cuenta
           </Button>
+          
         </form>
       </Card>
     </div>
