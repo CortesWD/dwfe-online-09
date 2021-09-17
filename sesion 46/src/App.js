@@ -7,7 +7,7 @@ import React from "react";
  * Components
  */
 import Header from './components/header/Header';
-import Pages from './pages/Page';
+import Pages from './pages/Pages';
 
 /**
  * Styles

@@ -16,6 +16,7 @@ function CourseList() {
             <Link to={`${URLS.courses}${pathName}`}>{name}</Link>
           </li>
         ))}
+        <li><Link to="/cursos/asd">Ir</Link></li>
       </ul>
     </div>
   )

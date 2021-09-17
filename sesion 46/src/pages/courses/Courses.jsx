@@ -2,7 +2,7 @@
  * Dependencies
  */
 import React from "react";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 /**
  * Components
@@ -19,26 +19,30 @@ import './Courses.css';
  */
 import { CURSOS, URLS } from '../../utils/constants';
 import Course from './components/course/Course';
+import NotFound from '../notFound/NotFound';
 
 const { courses } = URLS;
 
 function Courses() {
   return (
     <div>
-      <Route exact path={courses} component={CourseList} />
-      {CURSOS.map(curso => {
-        const { pathName, name, image, id } = curso;
-        return (
-          <Route
-            key={id}
-            exact
-            path={`${courses}${pathName}`}
-            render={() => {
-              return <Course name={name} image={image} />
-            }}
-          />
-        );
-      })}
+      <Switch>
+        <Route exact path={courses} component={CourseList} />
+        {CURSOS.map(curso => {
+          const { pathName, name, image, id } = curso;
+          return (
+            <Route
+              key={id}
+              exact
+              path={`${courses}${pathName}`}
+              render={() => {
+                return <Course name={name} image={image} />
+              }}
+            />
+          );
+        })}
+        <Route component={NotFound} />
+      </Switch>
     </div>
   )
 }
