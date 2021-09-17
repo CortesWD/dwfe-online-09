@@ -27,9 +27,10 @@ function Courses() {
     <div>
       <Route exact path={courses} component={CourseList} />
       {CURSOS.map(curso => {
-        const { pathName, name, image } = curso;
+        const { pathName, name, image, id } = curso;
         return (
           <Route
+            key={id}
             exact
             path={`${courses}${pathName}`}
             render={() => {
