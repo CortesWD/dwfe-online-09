@@ -1,0 +1,27 @@
+@import './../../scss/colors';
+@import './../../scss/fonts';
+
+.pokemon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+
+  .pokemon-info {
+    flex-basis: 90%;
+    flex-wrap: nowrap;
+    padding: 4px 16px;
+    position: relative;
+  }
+
+  .pokemon-pic {
+    background-color: $blue_light;
+  }
+
+  .pokemon-types {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+

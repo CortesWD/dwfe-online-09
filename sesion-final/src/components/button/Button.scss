@@ -1,0 +1,13 @@
+@import './../../scss/colors';
+@import './../../scss/fonts';
+
+.btn {
+  background-color: $blue_dark;
+  border-radius: 4px;
+  border: none;
+  box-shadow:
+      1px 2px 2px Hsl(220deg 60% 50% / 0.333);
+  color: $blue_accent;
+  font-family: $montserrat;
+  text-transform: uppercase;
+}

@@ -1,0 +1,23 @@
+@import './../../scss/colors';
+@import './../../scss/fonts';
+
+.chip {
+  border-radius: 50px;
+  border: 1px solid $blue_mid;
+  font-family: $montserrat;
+  font-size: 10px;
+  padding: 4px 8px;
+  margin: 0 4px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+
+  &:first-of-type { margin-left: 0; }
+  &:nth-last-of-type(1) { margin-right: 0; }
+}
+
+.chip-grass {
+  background-color: $grass;
+  border-color: $grass_accent;
+  color: $grass_accent;
+}
