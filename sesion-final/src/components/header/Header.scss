@@ -1,0 +1,34 @@
+@import './../../scss/colors';
+
+$base_font_size: 20px;
+
+header {
+  background-color: $blue_dark;
+  box-shadow:
+      0 1px 1px Hsl(0deg 0% 0% / 0.075),
+      0 2px 2px Hsl(0deg 0% 0% / 0.075),
+      0 4px 4px Hsl(0deg 0% 0% / 0.075),
+      0 8px 8px Hsl(0deg 0% 0% / 0.075),
+      0 16px 16px Hsl(0deg 0% 0% / 0.075)
+    ;
+  color: #fff;
+  display: flex;
+  height: 52px;
+  padding: 8px 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  button {
+    border: none;
+    color: #fff;
+    background: none;
+    font-size: $base_font_size;
+  }
+
+  h1 {
+    font-size: $base_font_size;
+  }
+}

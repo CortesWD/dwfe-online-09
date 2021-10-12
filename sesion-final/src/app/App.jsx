@@ -6,9 +6,7 @@ import React from 'react';
 /**
  * Components
  */
-import Card from '../components/card/Card';
-import Button from '../components/button/Button';
-import Pokemon from '../components/pokemon/Pokemon';
+import Pages from '../pages/Pages';
 
 /**
  * Styles
@@ -17,14 +15,7 @@ import './App.scss';
 
 function App() {
   return (
-    <section className="container">
-      <Card>
-        <Button>
-          Button Example
-        </Button>
-      </Card>
-      <Pokemon />
-    </section>
+    <Pages />
   );
 }
 

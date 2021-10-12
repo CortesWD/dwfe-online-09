@@ -17,11 +17,11 @@ import './Pokemon.scss';
 
 function Pokemon(props) {
   return (
-    <Card className="pokemon">
+    <Card className="pokemon pokemon-grass">
       <div className="pokemon-info">
         <h3>#001 Bulbasaur</h3>
         <div className="pokemon-types">
-          <Chip color="grass"> Grass </Chip>
+          <Chip color="grass" text="Grass" />
         </div>
         <Check />
       </div>

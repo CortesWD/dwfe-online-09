@@ -10,11 +10,11 @@ import './Chip.scss';
 
 function Chip({
   color = '',
-  children
+  text = ''
 }) {
   return (
     <div className={`chip ${color ? `chip-${color}` : ''}`}>
-      {children}
+      {text}
     </div>
   )
 }
