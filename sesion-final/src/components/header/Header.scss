@@ -4,16 +4,10 @@ $base_font_size: 20px;
 
 header {
   background-color: $blue_dark;
-  box-shadow:
-      0 1px 1px Hsl(0deg 0% 0% / 0.075),
-      0 2px 2px Hsl(0deg 0% 0% / 0.075),
-      0 4px 4px Hsl(0deg 0% 0% / 0.075),
-      0 8px 8px Hsl(0deg 0% 0% / 0.075),
-      0 16px 16px Hsl(0deg 0% 0% / 0.075)
-    ;
   color: #fff;
   display: flex;
   height: 52px;
+  filter: drop-shadow(1px 2px 4px rgba($blue_dark, .8));
   padding: 8px 16px;
   position: fixed;
   top: 0;

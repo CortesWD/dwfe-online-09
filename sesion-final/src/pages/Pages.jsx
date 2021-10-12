@@ -15,14 +15,14 @@ function Pages() {
   return (
     <>
       <Header />
-      <section className="container">
+      <main className="container">
         <Card>
           <Button>
             Button Example
           </Button>
         </Card>
         <Pokemon />
-      </section>
+      </main>
     </>
   )
 }
