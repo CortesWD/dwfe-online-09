@@ -7,9 +7,11 @@ import React, { useState, useEffect } from 'react';
  * Components
  */
 import Header from '../components/header/Header';
-import Card from '../components/card/Card';
-import Button from '../components/button/Button';
 import Pokemon from '../components/pokemon/Pokemon';
+
+/**
+ * Others
+ */
 import { request } from '../utils/request';
 
 function Pages() {
