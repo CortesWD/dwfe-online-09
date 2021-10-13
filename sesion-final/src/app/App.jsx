@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { AppProvider } from '../context/AppContext';
+import {BrowserRouter} from 'react-router-dom';
 
 /**
  * Components
@@ -17,7 +18,10 @@ import './App.scss';
 function App() {
   return (
     <AppProvider>
-      <Pages />
+      <BrowserRouter>
+        <Pages />
+      </BrowserRouter>
+      
     </AppProvider>
 
   );

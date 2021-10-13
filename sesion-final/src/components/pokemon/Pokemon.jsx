@@ -2,6 +2,8 @@
  * Dependencies
  */
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 /**
  * Components
@@ -21,7 +23,9 @@ function Pokemon(props) {
   return (
     <Card className={`pokemon pokemon-${firstType}`}>
       <div className="pokemon-info">
-        <h3>#{id} {name}</h3>
+        <h3> 
+        <Link to={`/pokemon/${id}`}>#{id} {name}</Link>
+        </h3>
         <div className="pokemon-types">
           {types.map(item => {
             const { type: { name: typeName } } = item;
