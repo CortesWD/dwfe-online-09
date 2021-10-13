@@ -16,7 +16,7 @@ import Chip from '../chip/Chip';
 import './Pokemon.scss';
 
 function Pokemon(props) {
-  const { id, name, image, types } = props;
+  const { id, name, image, types, checked } = props;
   const firstType = types[0].type.name;
   return (
     <Card className={`pokemon pokemon-${firstType}`}>
@@ -30,7 +30,7 @@ function Pokemon(props) {
             );
           })}
         </div>
-        <Check />
+        <Check checked={checked} />
       </div>
       <picture className="pokemon-pic">
         <img

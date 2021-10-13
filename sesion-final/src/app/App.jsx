@@ -2,6 +2,7 @@
  * Dependencies
  */
 import React from 'react';
+import { AppProvider } from '../context/AppContext';
 
 /**
  * Components
@@ -15,7 +16,10 @@ import './App.scss';
 
 function App() {
   return (
-    <Pages />
+    <AppProvider>
+      <Pages />
+    </AppProvider>
+
   );
 }
 

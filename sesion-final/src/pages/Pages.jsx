@@ -1,13 +1,14 @@
 /**
  * Dependencies
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 /**
  * Components
  */
 import Header from '../components/header/Header';
 import Pokemon from '../components/pokemon/Pokemon';
+import { AppContext } from '../context/AppContext';
 
 /**
  * Others
@@ -15,15 +16,15 @@ import Pokemon from '../components/pokemon/Pokemon';
 import { request } from '../utils/request';
 
 function Pages() {
-  const [list, setList] = useState([])
+  const {setPokemons, pokemons} = useContext(AppContext);
 
   useEffect(() => {
-    if (!list.length) {
+    if (!pokemons.length) {
       request('/pokemon?limit=100&offset=0')
         .then(res => res.json())
         .then(data => {
           const { results } = data;
-          const pokemons = [];
+          const res = [];
           results.forEach((item, index) => {
             const { url } = item;
             fetch(url)
@@ -31,9 +32,9 @@ function Pages() {
             .then(data => {
               const { name, sprites, id, types } = data;
               const { front_default } = sprites;
-              pokemons.push({id, name, image: front_default, types});
+              res.push({id, name, image: front_default, types, checked:false});
               if(index === results.length-1) {
-                setList(pokemons.sort((a, b) => a.id - b.id));
+                setPokemons(res.sort((a, b) => a.id - b.id));
               }
             })
             .catch(err => console.log(err))
@@ -48,10 +49,10 @@ function Pages() {
     <>
       <Header />
       <main className="container">
-        {list.map(item => {
-          const { id, name, image, types } = item;
+        {pokemons.map(item => {
+          const { id, name, image, types, checked } = item;
           return(
-            <Pokemon key={id} id={id} name={name} image={image} types={types}/>
+            <Pokemon key={id} id={id} name={name} image={image} types={types} checked={checked}/>
           );
         })}
       </main>
