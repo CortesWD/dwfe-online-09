@@ -16,19 +16,26 @@ import Chip from '../chip/Chip';
 import './Pokemon.scss';
 
 function Pokemon(props) {
+  const { id, name, image, types } = props;
+  const firstType = types[0].type.name;
   return (
-    <Card className="pokemon pokemon-grass">
+    <Card className={`pokemon pokemon-${firstType}`}>
       <div className="pokemon-info">
-        <h3>#001 Bulbasaur</h3>
+        <h3>#{id} {name}</h3>
         <div className="pokemon-types">
-          <Chip color="grass" text="Grass" />
+          {types.map(item => {
+            const { type: { name: typeName } } = item;
+            return(
+              <Chip key={`${id}_${typeName}`} color={typeName} text={typeName} />
+            );
+          })}
         </div>
         <Check />
       </div>
       <picture className="pokemon-pic">
         <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-          alt="bulbasaur"
+          src={image}
+          alt={name}
         />
       </picture>
     </Card>
