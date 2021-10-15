@@ -23,13 +23,13 @@ function Pokemon(props) {
   return (
     <Card className={`pokemon pokemon-${firstType}`}>
       <div className="pokemon-info">
-        <h3> 
-        <Link to={`/pokemon/${id}`}>#{id} {name}</Link>
+        <h3>
+          <Link to={`/pokemon/${id}`}>#{id} {name}</Link>
         </h3>
         <div className="pokemon-types">
           {types.map(item => {
             const { type: { name: typeName } } = item;
-            return(
+            return (
               <Chip key={`${id}_${typeName}`} color={typeName} text={typeName} />
             );
           })}

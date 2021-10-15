@@ -15,14 +15,23 @@ header {
   width: 100%;
   z-index: 100;
 
-  button {
+  h1,a {
+    margin: 8px 0;
+    line-height: 1.1;
+  }
+
+  a {
     border: none;
+    display: block;
     color: #fff;
     background: none;
     font-size: $base_font_size;
   }
 
   h1 {
+    margin-left: 4px;
     font-size: $base_font_size;
   }
+
+  
 }
