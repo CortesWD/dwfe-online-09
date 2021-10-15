@@ -13,6 +13,7 @@ function Header(props) {
     <header>
       <Link to='/'><i className="fa fa-chevron-circle-left" /></Link>
       <h1> Pokedex </h1>
+      <Link to='/collection'>Mi Colección</Link>
     </header>
   );
 }

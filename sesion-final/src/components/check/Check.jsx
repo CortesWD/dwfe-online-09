@@ -9,15 +9,15 @@ import React, { useState } from 'react';
 import './Check.scss';
 
 function Check({
-  checked
+  checked,
+  onClick
 }) {
-  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <button
       className="check"
       type="button"
-      onClick={e => setIsChecked(!isChecked)}
+      onClick={onClick}
     >
       <i className={`far fa-${checked ? 'check-circle' : 'circle' }`} />
     </button>
