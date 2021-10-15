@@ -1,0 +1,1 @@
+export const request = (resource, query, limit=12) => fetch(`https://api.giphy.com/v1/gifs${resource}?api_key=gZlFYwmC7QZSHq5OnQu5R8tsSwQn9GP3&q=${query}&limit=${limit}&offset=0&rating=g&lang=en`);

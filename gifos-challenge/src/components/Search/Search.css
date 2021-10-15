@@ -1,0 +1,17 @@
+.btn-search {
+    /* Primer valor es la esquina superior izquierda y así sucesivamente en función del giro del reloj */
+    border-radius: 0 10px 10px 0;
+}
+
+.form-control {
+    position: relative;
+    
+}
+
+.form-control input {
+    height: 34px;
+}
+
+form {
+    display: flex;
+}

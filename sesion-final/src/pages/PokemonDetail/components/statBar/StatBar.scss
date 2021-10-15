@@ -1,0 +1,48 @@
+@import './../../../../scss/colors';
+
+%stat-position {
+  color: $blue_accent;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.stat-container {
+  position: relative;
+  width: 100%;
+
+  .stat-name{
+    @extend %stat-position;
+
+    left: 8px;;
+  }
+
+  .stat {
+    background-color: $blue_dark;
+    color: $blue_accent;
+    border-radius: 8px;
+    position: relative;
+    height: 20px;
+
+    .stat-value {
+      @extend %stat-position;
+
+      right: 8px;
+    }
+  }
+
+  &.stat-container-grass {
+    .stat {
+      background-color: $grass;
+      color: $grass_accent;
+    }
+
+    .stat-name,
+    .stat-value {
+      color: $grass_accent;
+    }
+  }
+}
+

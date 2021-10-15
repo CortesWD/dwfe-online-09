@@ -1,0 +1,8 @@
+.btn {
+    background-color: aquamarine;
+    border-radius: 10px;
+    border: none;
+}
+.btn:disabled {
+    background-color: gray;
+}

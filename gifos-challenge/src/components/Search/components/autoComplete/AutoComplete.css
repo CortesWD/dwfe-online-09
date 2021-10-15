@@ -1,0 +1,15 @@
+.autocomplete-container {
+  box-shadow: 0 4px 4px 4px rgba(0,0, 0, .4);
+  padding: 4px 8px;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+}
+
+.autocomplete-option {
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  display: block;
+}
